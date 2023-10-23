@@ -7,6 +7,9 @@
     "@trpc/server": "^10.40.0",
     "zod": "^3.0.0"
   },
+  "scripts": {
+    "start": "node index.ts"
+ },
   "devDependencies": {
     "@types/node": "^18.16.16",
     "nodemon": "^3.0.1",
