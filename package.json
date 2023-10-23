@@ -8,7 +8,7 @@
     "zod": "^3.0.0"
   },
   "scripts": {
-    "start": "node index.ts"
+    "start": "ts-node index.ts"
  },
   "devDependencies": {
     "@types/node": "^18.16.16",
