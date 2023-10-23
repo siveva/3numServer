@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int @id @default(autoincrement())
+  firstname         String
+  lastname          String
+  type              String
+  username          String @unique
+  password          String
+  coordinator_by_id Int
+  wallet_balance    Float
+  bet               Bet?
+
+}
+
+model TopUp {
+  id            Int    @id @default(autoincrement())
+  coordinatorId Int    
+  agentId       Int    
+  amount        Float
+  createdAt     String
+}
+
+
+model Bet {
+  id          Int @id @default(autoincrement())
+  agentId     Int    @unique
+  agent       User   @relation(fields: [agentId], references: [id])
+  drawType    String
+  betType     String
+  combination Int
+  amount      Float
+  createdAt   DateTime
+}
